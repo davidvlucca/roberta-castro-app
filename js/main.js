@@ -273,7 +273,7 @@
             speed: 0.2
         });
     }
-    
+
     function fitVideo() {
         $(".page-wrapper").fitVids();
     }
