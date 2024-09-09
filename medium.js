@@ -2,11 +2,17 @@ document.addEventListener('DOMContentLoaded', function () {
   const videos = document.querySelectorAll('video');
 
   videos.forEach(function (video) {
-    video.addEventListener('loadeddata', function () {
-      // Ensure the video height fits the container after loading
+    // Function to adjust the container height
+    const adjustVideoHeight = function () {
       const container = video.parentElement;
       container.style.height = video.videoHeight + 'px';
-    });
+    };
+
+    // Try to adjust the height when the video has loaded data
+    video.addEventListener('loadeddata', adjustVideoHeight);
+
+    // Fallback: After a short delay, ensure the height is adjusted
+    setTimeout(adjustVideoHeight, 500); // Adjusts height after 500ms
   });
 });
 
