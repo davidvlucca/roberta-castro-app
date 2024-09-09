@@ -1,3 +1,15 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const videos = document.querySelectorAll('video');
+
+  videos.forEach(function (video) {
+    video.addEventListener('loadeddata', function () {
+      // Ensure the video height fits the container after loading
+      const container = video.parentElement;
+      container.style.height = video.videoHeight + 'px';
+    });
+  });
+});
+
 $(function () {
   var $content = $('#jsonContent');
 
