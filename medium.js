@@ -8,13 +8,14 @@ document.addEventListener('DOMContentLoaded', function () {
       container.style.height = video.videoHeight + 'px';
 
       // Force a reflow to ensure the layout updates correctly
-      container.style.display = 'none';
+      container.style.display = 'none'; // Hide the element temporarily
       container.offsetHeight; // Trigger reflow
-      container.style.display = 'block';
+      container.style.display = 'block'; // Re-display the element
     };
 
-    // Adjust the height when the video data is loaded
+    // Force video to reload on every page load to avoid caching issues
     video.addEventListener('loadeddata', adjustVideoHeight);
+    video.src += ''; // Force reload of the video to prevent caching
 
     // Fallback: After a short delay, adjust the height to ensure the correct layout
     setTimeout(adjustVideoHeight, 500); // Adjusts height after 500ms
