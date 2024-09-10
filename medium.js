@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+window.addEventListener('load', function () {
   const videos = document.querySelectorAll('video');
 
   videos.forEach(function (video) {
@@ -8,17 +8,19 @@ document.addEventListener('DOMContentLoaded', function () {
       container.style.height = video.videoHeight + 'px';
 
       // Force a reflow to ensure the layout updates correctly
-      container.style.display = 'none'; // Hide the element temporarily
-      container.offsetHeight; // Trigger reflow
+      container.style.display = 'none'; // Temporarily hide the element
+      container.offsetHeight; // Trigger a reflow
       container.style.display = 'block'; // Re-display the element
     };
 
-    // Force video to reload on every page load to avoid caching issues
+    // Adjust height when video is loaded
     video.addEventListener('loadeddata', adjustVideoHeight);
-    video.src += ''; // Force reload of the video to prevent caching
 
-    // Fallback: After a short delay, adjust the height to ensure the correct layout
-    setTimeout(adjustVideoHeight, 500); // Adjusts height after 500ms
+    // Fallback: Adjust the height after a short delay
+    setTimeout(adjustVideoHeight, 1000); // Adjusts height after 1 second
+
+    // Add a resize listener to recalculate the video height on mobile resizing or rotation
+    window.addEventListener('resize', adjustVideoHeight);
   });
 });
 

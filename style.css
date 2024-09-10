@@ -569,14 +569,13 @@ img.block-right {
 }
 
 .grid-item video {
-    display: block;
-    width: 100%;
-    height: auto;
-    max-height: none;
-    max-width: none;
-    object-fit: cover; /* Ensures the video maintains aspect ratio and covers the container */
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+  max-width: none;
+  object-fit: cover; /* Ensures the video maintains aspect ratio and covers the container */
 }
-
 
 .grid-item img {
   display: block;
@@ -1365,6 +1364,19 @@ p.contact-submit-holder {
 }
 
 @media (max-width: 767px) {
+  .grid-item {
+        width: 100%; /* Ensure grid items take full width on mobile */
+        height: auto; /* Allow the container to auto-adjust its height */
+    }
+
+    .grid-item video {
+        object-fit: cover;
+        width: 100%;  /* Ensure video stretches full width */
+        height: auto; /* Let the height be dynamic based on aspect ratio */
+        max-width: 100%;
+        max-height: none;
+    }
+
   .nav-btn {
     background-color: #fff;
     width: 100%;
