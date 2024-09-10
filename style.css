@@ -568,6 +568,16 @@ img.block-right {
   transition: opacity 0.3s;
 }
 
+.grid-item video {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: none;
+    max-width: none;
+    object-fit: cover; /* Ensures the video maintains aspect ratio and covers the container */
+}
+
+
 .grid-item img {
   display: block;
   width: 100%;
@@ -816,12 +826,6 @@ div.pp_default .pp_description {
 /* ===================================
     7. Blog Section CSS
 ====================================== */
-
-video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures the video scales to cover the container */
-}
 
 .home-blog-list {
   padding-right: 41px;

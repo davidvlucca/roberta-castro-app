@@ -2,16 +2,21 @@ document.addEventListener('DOMContentLoaded', function () {
   const videos = document.querySelectorAll('video');
 
   videos.forEach(function (video) {
-    // Function to adjust the container height
+    // Function to adjust the container height dynamically
     const adjustVideoHeight = function () {
       const container = video.parentElement;
       container.style.height = video.videoHeight + 'px';
+
+      // Force a reflow to ensure the layout updates correctly
+      container.style.display = 'none';
+      container.offsetHeight; // Trigger reflow
+      container.style.display = 'block';
     };
 
-    // Try to adjust the height when the video has loaded data
+    // Adjust the height when the video data is loaded
     video.addEventListener('loadeddata', adjustVideoHeight);
 
-    // Fallback: After a short delay, ensure the height is adjusted
+    // Fallback: After a short delay, adjust the height to ensure the correct layout
     setTimeout(adjustVideoHeight, 500); // Adjusts height after 500ms
   });
 });
