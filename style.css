@@ -1365,17 +1365,12 @@ p.contact-submit-holder {
 
 @media (max-width: 767px) {
   .grid-item {
-        width: 100%; /* Ensure grid items take full width on mobile */
-        height: auto; /* Allow the container to auto-adjust its height */
-    }
+    width: 100%; /* Ensure grid items take full width on mobile */
+  }
 
-    .grid-item video {
-        object-fit: cover;
-        width: 100%;  /* Ensure video stretches full width */
-        height: auto; /* Let the height be dynamic based on aspect ratio */
-        max-width: 100%;
-        max-height: none;
-    }
+  .grid-item video {
+    display: none; /* Hide the video on mobile */
+  }
 
   .nav-btn {
     background-color: #fff;
